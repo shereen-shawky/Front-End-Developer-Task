@@ -2,8 +2,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import Image from "next/image";
-import { Menu, X } from "lucide-react"; // Install lucide-react if not already: npm install lucide-react
+import { Menu, X } from "lucide-react"; // npm install lucide-react
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -31,16 +30,10 @@ export default function Navbar() {
         scrolled ? "backdrop-blur-md" : "bg-transparent"
       }`}
     >
-      <div className="max-w-5xl mx-auto flex items-center justify-between py-3 px-4">
-        {/* Left side: Logo */}
+      <div className="max-w-5xl mx-auto flex items-center justify-between py-2 px-4">
+        {/* Left side: Text Logo */}
         <Link href="/" className="flex items-center gap-2">
-          <Image
-            src="/icon.svg"
-            alt="Scout Logo"
-            width={120}
-            height={120}
-            className="object-contain"
-          />
+          <span className="text-2xl font-regular text-white">✱ Scout</span>
         </Link>
 
         {/* Desktop Menu */}
