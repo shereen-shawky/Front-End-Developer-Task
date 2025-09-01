@@ -12,47 +12,57 @@ export default function InboxCard() {
         }}
       >
         <defs>
-         
+          {/* Body Gradient */}
+          <linearGradient id="pocketGrad" x1="0" y1="1" x2="1" y2="0">
+            <stop offset="0%" stopColor="rgba(20, 10, 40, 0.8)" />
+            <stop offset="100%" stopColor="rgba(60, 20, 100, 0.4)" />
+          </linearGradient>
 
-          
+          {/* Flap Gradient */}
+          <linearGradient id="flapGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stopColor="rgba(120, 80, 180, 0.5)" />
+            <stop offset="100%" stopColor="rgba(30, 10, 50, 0.2)" />
+          </linearGradient>
 
-          {/* Outer glow */}
+          {/* Gloss / Sheen */}
+          <linearGradient id="sheenGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stopColor="rgba(255,255,255,0.2)" />
+            <stop offset="100%" stopColor="rgba(255,255,255,0)" />
+          </linearGradient>
+
+          {/* Glow effect */}
           <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
             <feDropShadow
               dx="0"
               dy="12"
-              stdDeviation="14"
-              floodColor="rgba(0,0,0,0.7)"
+              stdDeviation="18"
+              floodColor="rgba(80,0,150,0.4)"
             />
           </filter>
         </defs>
 
-        {/* Envelope Pocket (darker) */}
+        
+        {/* Flap */}
         <path
-          d="M60 200 H340 L300 260 H100 Z"
-          fill="url(#pocketGrad)"
-          stroke="#6a2b9c"
-          strokeWidth="0.3"
-          filter="url(#glow)"
+          d="M60 200 L200 120 L340 200 Z"
+          fill="url(#flapGrad)"
+          stroke="rgba(140, 80, 200, 0.6)"
+          strokeWidth="0.4"
         />
 
-{/* Flap (outline only, no fill) */}
-<path
-  d="M60 200 L200 120 L340 200 Z"
-  fill="none"
-  stroke="#6a2b9c"
-  strokeWidth="0.5"
-  opacity="0.9"
-/>
+        {/* Highlight Sheen */}
+        <path
+          d="M60 200 L200 120 L340 200 Z"
+          fill="url(#sheenGrad)"
+          opacity="0.4"
+        />
 
-        
-        {/* U-shaped fold line with flat bottom */}
+        {/* Fold line */}
         <path
           d="M60 200 L150 220 L250 220 L340 200"
           fill="none"
-          stroke="#6a2b9c"
+          stroke="rgba(200, 100, 255, 0.6)"
           strokeWidth="0.5"
-          opacity="0.9"
         />
       </svg>
 
@@ -65,12 +75,12 @@ export default function InboxCard() {
             alt="Avatar"
             className="rounded-xl shadow-lg border border-gray-800"
           />
-          <p className="text-xs text-gray-300 leading-snug">
+          <p className="text-xs font-regular text-white/50 leading-snug">
             Thanks Scout. You just saved me a bunch of time
           </p>
         </div>
 
-        {/* Message 2 (center hint bubble) */}
+        {/* Message 2 */}
         <div>
           <img src="/Group (5).svg" alt="Hint bubble" />
         </div>
@@ -82,14 +92,14 @@ export default function InboxCard() {
             alt="Avatar"
             className="rounded-xl shadow-lg border border-gray-800"
           />
-          <p className="text-xs text-gray-300 leading-snug">
+          <p className="text-xs font-regular text-white/50 leading-snug">
             How do I replay a previous app run?
           </p>
         </div>
       </div>
 
       {/* Footer */}
-      <div className="text-left mt-20 z-10 relative">
+      <div className="text-left mt-22 z-10 relative">
         <h2 className="text-lg font-semibold text-white">
           An Inbox with superpowers
         </h2>
