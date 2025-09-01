@@ -1,7 +1,7 @@
 // app/components/Footer.tsx
-import Image from "next/image";
 import { FaSlack, FaLinkedin } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6"; // for X (Twitter)
+import Link from "next/link";
 
 export default function Footer() {
   return (
@@ -10,13 +10,9 @@ export default function Footer() {
         
         {/* Left - Logo + Status (wider, spans 2 columns) */}
         <div className="md:col-span-2">
-          <Image
-            src="/icon.svg" 
-            alt="Scout Logo"
-            width={110}
-            height={20}
-            className="mb-5"
-          />
+          <Link href="/" className="flex items-center gap-2">
+          <span className="text-2xl font-regular text-white">✱ Scout</span>
+        </Link>
          {/* Status Badge */}
             <div className="relative mt-10 inline-flex items-center bg-black border border-gray-800 rounded-full px-2.5 py-2 text-sm font-medium shadow-md w-fit overflow-hidden">
             {/* Green radial shadow at the start */}
