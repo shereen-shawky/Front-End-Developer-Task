@@ -10,13 +10,7 @@ The goal of the task is to demonstrate clean code structure, responsiveness acro
 
 ## 🚀 Live Demo
 
-🔗 [View Live Preview](https://your-vercel-link.vercel.app)
-
----
-
-## 📂 Repository
-
-🔗 [GitHub Repository](https://github.com/your-username/your-repo)
+🔗 [View Live Preview][(https://your-vercel-link.vercel.app)](https://front-end-developer-task-two.vercel.app/)
 
 ---
 
