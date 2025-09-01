@@ -3,111 +3,86 @@ import { FaUserCircle } from "react-icons/fa";
 export default function InboxCard() {
   return (
     <div className="h-full relative w-full max-w-md mx-auto rounded-2xl p-6 shadow-2xl overflow-hidden backdrop-blur-xl">
-      {/* Envelope Background with 3D effect */}
+      {/* Envelope Background */}
       <svg
         viewBox="0 0 400 300"
         className="absolute inset-0 w-[140%] h-[140%] -left-[20%] -top-[20%] pointer-events-none z-0"
         style={{
-          transform: "perspective(1000px) rotateX(12deg) scale(1.2)",
+          transform: "perspective(1000px) rotateX(15deg) scale(1.25)",
         }}
       >
         <defs>
-          {/* Body gradient */}
-          <linearGradient id="envBodyGrad" x1="0" y1="1" x2="1" y2="0">
-            <stop offset="0%" stopColor="rgba(10, 6, 19, 0.1)" />
-            <stop offset="100%" stopColor="rgba(46, 23, 75, 0.1)" />
-          </linearGradient>
+         
 
-          {/* Flap gradient */}
-          <linearGradient id="envFlapGrad" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stopColor="#452064" />
-            <stop offset="100%" stopColor="#1d0e32" />
-          </linearGradient>
+          
 
-          {/* Drop shadow filter */}
-          <filter id="envShadow" x="-20%" y="-20%" width="140%" height="140%">
+          {/* Outer glow */}
+          <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
             <feDropShadow
               dx="0"
-              dy="10"
-              stdDeviation="12"
-              floodColor="rgba(0,0,0,0.6)"
-            />
-          </filter>
-
-          {/* Inner shadow */}
-          <filter id="innerShadow" x="-50%" y="-50%" width="200%" height="200%">
-            <feOffset dx="0" dy="2" />
-            <feGaussianBlur stdDeviation="4" result="blur" />
-            <feComposite
-              in="SourceGraphic"
-              in2="blur"
-              operator="arithmetic"
-              k2="-1"
-              k3="1"
+              dy="12"
+              stdDeviation="14"
+              floodColor="rgba(0,0,0,0.7)"
             />
           </filter>
         </defs>
 
-        {/* BODY / POCKET with transparency and dark border */}
+        {/* Envelope Pocket (darker) */}
         <path
-          d="M60 205 H340 L300 260 H100 Z"
-          fill="url(#envBodyGrad)"
-          opacity="0.3"
-          stroke="#4b1f6d"
+          d="M60 200 H340 L300 260 H100 Z"
+          fill="url(#pocketGrad)"
+          stroke="#6a2b9c"
           strokeWidth="0.3"
-          filter="url(#envShadow)"
+          filter="url(#glow)"
         />
 
-        {/* FLAP */}
+{/* Flap (outline only, no fill) */}
+<path
+  d="M60 200 L200 120 L340 200 Z"
+  fill="none"
+  stroke="#6a2b9c"
+  strokeWidth="0.5"
+  opacity="0.9"
+/>
+
+        
+        {/* U-shaped fold line with flat bottom */}
         <path
-          d="M60 205 L200 130 L340 205 Z"
-          fill="url(#envFlapGrad)"
-          filter="url(#innerShadow)"
+          d="M60 200 L150 220 L250 220 L340 200"
+          fill="none"
+          stroke="#6a2b9c"
+          strokeWidth="0.5"
+          opacity="0.9"
         />
-
-        {/* Middle U-shaped line */}
-       <path
-        d="M60 205 L200 230 L340 205"
-        fill="none"
-        stroke="#4b1f6d"
-        strokeWidth="0.5"
-        />
-
       </svg>
 
       {/* Chat Bubbles */}
       <div className="relative flex flex-col gap-4 mt-8 z-10">
         {/* Message 1 */}
-        <div
-          className="flex items-center gap-2 self-end bg-black/50 backdrop-blur-md px-2 py-1 rounded-xl shadow-lg border border-white/10"
-          style={{ transform: "perspective(800px) rotateY(2.73deg)" }}
-        >
+        <div className="flex items-center gap-2 self-end bg-black/50 backdrop-blur-md px-2 py-1 rounded-xl shadow-lg border border-white/10">
           <img
             src="/avatar.svg"
             alt="Avatar"
             className="rounded-xl shadow-lg border border-gray-800"
           />
-          <p className="text-xs text-gray-500 leading-snug">
+          <p className="text-xs text-gray-300 leading-snug">
             Thanks Scout. You just saved me a bunch of time
           </p>
         </div>
 
-        {/* Message 2 */}
+        {/* Message 2 (center hint bubble) */}
         <div>
-          <img src="/Group (5).svg" alt="Avatar" />
+          <img src="/Group (5).svg" alt="Hint bubble" />
         </div>
 
         {/* Message 3 */}
-        <div
-          className="flex items-center gap-2 self-end bg-black/50 backdrop-blur-md px-2 py-1 rounded-xl shadow-lg border border-white/10"
-          style={{ transform: "perspective(800px) rotateY(2.73deg)" }}
-        >
+        <div className="flex items-center gap-2 self-end bg-black/50 backdrop-blur-md px-2 py-1 rounded-xl shadow-lg border border-white/10">
           <img
             src="/avatar.svg"
             alt="Avatar"
             className="rounded-xl shadow-lg border border-gray-800"
           />
-          <p className="text-xs text-gray-500 leading-snug">
+          <p className="text-xs text-gray-300 leading-snug">
             How do I replay a previous app run?
           </p>
         </div>
